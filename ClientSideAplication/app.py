@@ -9,11 +9,9 @@ SERVER_PORT = 5040
 #SERVER_PORT = 5040
 
 import tkinter as tk
-#from PIL import Image, ImageTk  # Pillow para manejar imágenes
-#from pynput import mouse, keyboard
+from PIL import Image, ImageTk  # Pillow para manejar imágenes
+from pynput import mouse, keyboard
 import threading
-
-
 
 def bloquear_mouse():
     with mouse.Listener(on_move=lambda x, y: False, on_click=lambda x, y, button, pressed: False) as listener:
@@ -30,7 +28,8 @@ def mostrar_protector():
     ventana.attributes('-fullscreen', True)  # Pantalla completa
 
     # Cargar la imagen de fondo
-    imagen = Image.open("src/images/tu_imagen.jpg")  # Cambia esto por la ruta de tu imagen
+    """imagen = Image.open("src/images/tu_imagen.jpg")"""  # Cambia esto por la ruta de tu imagen
+    imagen = Image.open("C:\UECSoftware\UEC-Flask\ClientSideAplication\src\images\AIO Salones 1920 x 1080.jpg")
     imagen = imagen.resize((ventana.winfo_screenwidth(), ventana.winfo_screenheight()), Image.ANTIALIAS)  # Ajustar la imagen a la pantalla
     imagen_fondo = ImageTk.PhotoImage(imagen)
 

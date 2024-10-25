@@ -10,3 +10,7 @@ requests
 alembic
 psutil
 openpyxl
+pillow
+pynput
+pyinstaller
+
