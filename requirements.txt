@@ -13,4 +13,3 @@ openpyxl
 pillow
 pynput
 pyinstaller
-
