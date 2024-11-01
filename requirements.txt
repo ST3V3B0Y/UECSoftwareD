@@ -13,3 +13,4 @@ openpyxl
 pillow
 pynput
 pyinstaller
+cryptography

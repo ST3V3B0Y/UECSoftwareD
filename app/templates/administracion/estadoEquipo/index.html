@@ -70,6 +70,8 @@
                 <span class="form__line"></span>
                 <button class="text-white rounded-lg text-center px-5 mx-5" style="background-color: rgba(0, 46, 25, .8);">Buscar</button>
                 <button class="text-white rounded-lg text-center px-5 mx-5" style="background-color: rgba(0, 46, 25, .8);" id="liberar_todos">Liberar todos</button>
+                <button class="text-white rounded-lg text-center px-5 mx-5" style="background-color: rgba(0, 46, 25, .8);" id="liberar_varios">Liberar varios</button>
+
             </form>
             <!-- Tabla que se ajusta al contenido -->
             <div id="tabla">
@@ -196,6 +198,8 @@
             liberarTodos()
 
         })
+
+        liberar_varios = doc
 
         function liberarTodos(){
             fetch('/equipo/liberar_todo/',{

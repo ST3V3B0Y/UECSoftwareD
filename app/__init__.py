@@ -5,7 +5,8 @@ import socket
 import threading
 import json
 import pymysql
-
+import time
+from time import sleep
 
 
 db = SQLAlchemy()
@@ -22,9 +23,14 @@ def create_app():
     
     return app
 
-
 def create_database_if_not_exists(db_name):
-    conn = pymysql.connect(user='root', password='', host='localhost')
+    # try:
+    #     conn = pymysql.connect(user='root', password='1234', host='localhost', port=8000)
+    # except pymysql.OperationalError:
+    #     print("Esperando a que Mysql esté listo...")
+    #     time.sleep(3)
+               
+    conn = pymysql.connect(user='admin', password='1234', host='localhost', port=8000)
     cursor = conn.cursor()
     try:
         cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")
@@ -34,7 +40,7 @@ def create_database_if_not_exists(db_name):
 
     cursor.close()
     conn.close()
-
+    
 # Llamar la función para crear la base de datos
 
 def init_extensions(app):
