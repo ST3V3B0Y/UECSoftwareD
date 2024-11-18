@@ -2654,8 +2654,6 @@ h5{
   animation: 1s;
 }
 
-
-
 .confirm-message{
   display:block;
   background-color: white;
@@ -2768,3 +2766,12 @@ h5{
     margin: 10px;
   }
 }
+
+@media (max-width: 920px){
+  .hero{
+    display: block;
+
+
+  }
+}
+
