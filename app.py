@@ -39,7 +39,7 @@ def index():
             contraseña=contraseña,
             nombreUsuario="administrador",
             identificacionUsuario="1",
-            Facultad_idFacultad=17
+            Facultad_idFacultad=19
         )
         try:
             db.session.add(administrador)
@@ -48,7 +48,7 @@ def index():
             db.session.rollback()
             print("Error registrando administrador", e)
 
-    facultades_list=["ADMINISTRACION DE EMPRESAS","CIENCIA DE DATOS","MATEMATICAS","ADMINISTRACION DE EMPRESAS HOTELERAS","COMUNICACION SOCIAL Y PERIODISMO","ECONOMIA","FILOSOFIA","GEOGRAFIA","GOBIERNO Y RELACIONES INTERNACIONALES","HISTORIA","PSICOLOGIA","SOCIOLOGIA","TRABAJO SOCIAL","ANTROPOLOGIA","ARQUEOLOGIA","CONTADURIA PUBLICA", "DERECHO","FIGRI","ADMINISTRATIVO", "DOCENTE"]
+    facultades_list=["ADMINISTRACION DE EMPRESAS","CIENCIA DE DATOS","MATEMATICAS","ADMINISTRACION DE EMPRESAS HOTELERAS","COMUNICACION SOCIAL Y PERIODISMO","ECONOMIA","FILOSOFIA","GEOGRAFIA","GOBIERNO Y RELACIONES INTERNACIONALES","HISTORIA","PSICOLOGIA","SOCIOLOGIA","TRABAJO SOCIAL","ANTROPOLOGIA","ARQUEOLOGIA","CONTADURIA PUBLICA", "DERECHO","FIGRI", "DOCENTE","ADMINISTRATIVO"]
     for facultad in facultades_list:
         facultad_existente = Facultad.query.filter_by(nombreFacultad=facultad).first()
         if not facultad_existente:

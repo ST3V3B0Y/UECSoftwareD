@@ -265,7 +265,7 @@
                             {% for equipo in equipos %}
                             {% if equipo.idEquipo==i %}
                             {% if equipo.estadoEquipo == "usado" %}
-                            <a style="padding: 24.5px; padding-bottom: 18px; padding-top: 17px" class="cta__right_usado" value="{{ i }}" name="action" onclick="equipoUsado({{ i }})">
+                            <a style=" padding: 24.5px; padding-bottom: 18px; padding-top: 17px" class="cta__right_usado" value="{{ i }}" name="action" onclick="equipoUsado({{ i }})">
                                 {{ i  }} 
                             </a>
                             {% else %}
@@ -345,7 +345,7 @@
         
 
         <div>
-            <img class="mr-52" src="{{ url_for('static', filename='../static/images/main.png') }}" alt="Not Found">
+            <img class="image-pc mr-52" src="{{ url_for('static', filename='../static/images/main.png') }}" alt="Not Found">
         </div>
 
 
@@ -426,7 +426,7 @@
                                         text: response.message,
                                         confirmButtonColor: '#3085d6'
                                     }).then(() => {
-                                        window.location.href = "{{ url_for('usuario.login') }}";
+                                        window.location.href = "{{ url_for('index') }}";
                                     });
                                 } else if (response.status === 'warning') {
                                     Swal.fire({

@@ -1,7 +1,7 @@
 import os
 import secrets
 SECRET_KEY = os.getenv('SECRET_KEY', secrets.token_hex(32))
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://admin:1234@localhost:8000/Disponibilidad_Equipos'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root@localhost:3306/Disponibilidad_Equipos'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 #SERVER_HOST = '10.100.103.142'

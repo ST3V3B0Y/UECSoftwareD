@@ -30,7 +30,7 @@ def create_database_if_not_exists(db_name):
     #     print("Esperando a que Mysql esté listo...")
     #     time.sleep(3)
                
-    conn = pymysql.connect(user='admin', password='1234', host='localhost', port=8000)
+    conn = pymysql.connect(user='root', password='', host='127.0.0.1', port=3306)
     cursor = conn.cursor()
     try:
         cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")

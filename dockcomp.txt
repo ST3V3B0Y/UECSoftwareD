@@ -9,7 +9,7 @@
 # https://github.com/docker/awesome-compose
 services:
 # Asignar aplicaciones a usar
-  flask:
+  flask: 
     build: .
     # Asignar puerto de la app
     ports:
