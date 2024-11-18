@@ -121,7 +121,13 @@
                 </div>
             </div>
             <!-- Controles de paginación en su propia fila -->
-            <div id="pagination-controls" class="flex justify-center my-4"></div>
+
+            <div class="pagination">
+                <button class="arrow" id="prev">&#8592;</button> <!-- Flecha izquierda -->
+                <div id="pagination-controls" class="flex justify-center my-4"></div>
+                <button class="arrow" id="next">&#8594;</button> <!-- Flecha derecha -->
+            </div>
+            
         </div>
     </div>
 
@@ -132,35 +138,41 @@
             const table = document.getElementById('usuarios-tbody');
             const rows = table.getElementsByTagName('tr');
             const totalPages = Math.ceil(rows.length / rowsPerPage);
-
-            function displayPage(page) {
-                const start = (page - 1) * rowsPerPage;
-                const end = start + rowsPerPage;
-
-                for (let i = 0; i < rows.length; i++) {
-                    rows[i].style.display = i >= start && i < end ? '' : 'none';
-                }
-            }
-
-            function createPaginationControls() {
-                const paginationControls = document.getElementById('pagination-controls');
-                paginationControls.innerHTML = '';
-
-                for (let i = 1; i <= totalPages; i++) {
-                    const btn = document.createElement('button');
-                    btn.textContent = i;
-                    btn.classList.add('px-3', 'py-1', 'mx-1', 'bg-gray-200', 'hover:bg-gray-300', 'rounded');
-                    btn.addEventListener('click', function() {
-                        displayPage(i);
-                    });
-                    paginationControls.appendChild(btn);
-                }
-            }
-
-            displayPage(1);
-            createPaginationControls();
-
+            const showPages = 5;
+            let currentPage = 1;
+            let startPage = 1;
+            
+            
         });
+        
+        //     function displayPage(page) {
+        //         const start = (page - 1) * rowsPerPage;
+        //         const end = start + rowsPerPage;
+
+        //         for (let i = 0; i < rows.length; i++) {
+        //             rows[i].style.display = i >= start && i < end ? '' : 'none';
+        //         }
+        //     }
+
+        //     function createPaginationControls() {
+        //         const paginationControls = document.getElementById('pagination-controls');
+        //         paginationControls.innerHTML = '';
+
+        //         for (let i = 1; i <= totalPages; i++) {
+        //             const btn = document.createElement('button');
+        //             btn.textContent = i;
+        //             btn.classList.add('px-3', 'py-1', 'mx-1', 'bg-gray-200', 'hover:bg-gray-300', 'rounded');
+        //             btn.addEventListener('click', function() {
+        //                 displayPage(i);
+        //             });
+        //             paginationControls.appendChild(btn);
+        //         }
+        //     }
+
+        //     displayPage(1);
+        //     createPaginationControls();
+
+        // });
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
