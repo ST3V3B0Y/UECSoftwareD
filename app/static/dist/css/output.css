@@ -2147,7 +2147,7 @@ h5{
 .form__submit_register{
   margin-top: -15px;
   text-decoration: none;
-  background-color: rgba(0,46,25,.8);
+  background-color: rgba(0,150,25,.8);
   color: #fff;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -2360,14 +2360,30 @@ h5{
 }
 
 .recepcion{
-  width: 70px;
+  width: 80px;
   margin-left: 38px;
   background-size: cover;
+}
+
+.ubicacion{
+  width: 385px;
+  display: flex;
+  margin-left: 6rem;
+  justify-content: center; 
+  border-top: 5px solid rgb(0, 39, 0);
+}
+
+.flecha{
+  width: 80px;
+  transform: rotate(90deg);
 }
 
 .line-3{
   margin-right: 22rem;
   gap: 8px;
+  width: 100%;
+  padding-left: 5.8rem;
+  justify-content: start;
 }
 
 .section li{
@@ -2637,4 +2653,32 @@ h5{
     -webkit-mask-image: linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5));
             mask-image: linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5));
   }
+}
+
+/* #pagination-controls{
+  display: felx;
+} */
+
+
+
+.ventanas {
+  color: white; 
+  margin: auto;
+  margin-left: 2rem;
+}
+
+
+.ventanas span{
+  display: block;
+  font-size: 34px;
+}
+
+.fondo-salon{
+  margin: auto;
+  padding-left: 22rem;
+}
+
+.titulo-fondo{
+  margin-top: 1rem;
+  font-size: 34px;
 }
