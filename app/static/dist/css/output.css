@@ -2739,6 +2739,15 @@ body {
   border: 1px solid #ccc;
 }
 
+#prev{
+  display: flex;
+}
+
+#next{
+  display: flex;
+}
+
+
 .pages {
   display: flex;
   gap: 5px;
@@ -2815,4 +2824,5 @@ body {
 
   }
 }
+
 
