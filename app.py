@@ -28,7 +28,7 @@ app = create_app()
 
 @app.route("/")
 def index():
-    contraseña ="scrypt:32768:8:1$FIYhHFrUEmO0kpti$7ec6e191d345f9d1e973e5b04fcfb4a06727a291421c96653d80b4398e5afe352cf597bc82504a8f8911843d6849a877bfdacf899bc3847f8d96d0a963db0b3e"
+    contraseña ="STU1e3c0"
     #registrar administrador
     administrador_existente = Usuario.query.filter_by(idUsuario=1).first()
 
@@ -39,7 +39,7 @@ def index():
             contraseña=contraseña,
             nombreUsuario="administrador",
             identificacionUsuario="1",
-            Facultad_idFacultad=19
+            Facultad_idFacultad=20
         )
         try:
             db.session.add(administrador)

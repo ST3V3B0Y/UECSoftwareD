@@ -122,20 +122,19 @@ def login_administracion():
         usuario = request.form.get("usuario")
         contraseña = request.form.get("contraseña")
         user = Usuario.query.filter_by(usuario=usuario).first()
-        #contraseña_hash = generate_password_hash(contraseña)
-        #print(contraseña_hash)
         if user:
             
-            if check_password_hash(user.contraseña, contraseña):
+            if user.contraseña == contraseña:
                 login_user(user)
                 print("current user:", current_user)
                 return redirect(url_for('usuario.administracion'))
             else :
-                flash("Ingrese la contraseña de administrador correcta.", "error")
-                return redirect(url_for('usuario.login_administracion'))         
-        else:
-            flash("El usuario no existe.", "error")
-            return redirect(url_for('usuario.login_administracion'))
+                flash("Usuario o contraseña incorrectos.", "error")
+                return redirect(url_for('usuario.login_administracion')) 
+        
+        else :
+            flash("Usuario o contraseña incorrectos.", "error")
+            return redirect(url_for('usuario.login_administracion')) 
 
 @bp.route("/administracion", methods=["GET","POST"])
 def administracion():
