@@ -2825,4 +2825,37 @@ body {
   }
 }
 
+.ventanas {
+  color: white; 
+  margin: auto;
+  margin-left: 2rem;
+}
 
+.ventanas span{
+  display: block;
+  font-size: 34px;
+}
+
+.fondo-salon{
+  margin: auto;
+  padding-left: 22rem;
+}
+
+.titulo-fondo{
+  margin-top: 1rem;
+  font-size: 34px;
+}
+
+.titulo-sala{
+  text-align: center;
+}
+
+.image-pc{
+  /* background-color: blue; */
+}
+
+.equipos{
+  /* background-color: red; */
+  padding: unset;
+  margin: unset;
+}
