@@ -16,6 +16,10 @@
     <header class="flex row bg-white max-h-32 justify-between items-center">
         <img src="{{url_for('static',filename='../static/images/logo-uec.png')}}" alt=""
             class="object-contain w-1/6 aspect-3/2 mx-4" />
+        <button onclick="reload()" class="text-green-900 m-16 text-2xl font-semibold p-4 rounded-xl hover:text-green-800 hover:shadow-2xl">
+            <i class="fa-solid fa-rotate-right mx-4" style="color: #14532d;"></i>Recargar Página
+        </button>
+        <div>
             <ul class="navlist">
                 <li>
                     <a href="{{ url_for('usuario.administracion') }}"
@@ -23,6 +27,7 @@
                             class="fa-solid fa-hand-point-left"></i> Volver</a>
                 </li>
             </ul>
+        </div>
     </header>
     <!--fin nav-->
     
@@ -40,7 +45,6 @@
     </div>
 
     <!-- Fin Alerta de confirmación al liberar todos los equipos -->
-
 
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -78,7 +82,7 @@
         </div>
         <div class="bg-white shadow-md p-10 rounded-b-xl">
             <p class="text-black ">
-                Busqueda de registros por equipo o cedula
+                Busqueda de registros por EQUIPO O CÉDULA
             </p>
             <form class="form__group my-5 flex flex-row" method="POST">
                 <input type="text" name="equipo" id="search-input" class="form__input" autofocus required>
@@ -87,7 +91,9 @@
                 <button class="text-white rounded-lg text-center px-5 mx-5" style="background-color: rgba(0, 46, 25, .8);">Buscar</button>
                 <button class="text-white rounded-lg text-center px-5 mx-5" style="background-color: rgba(0, 46, 25, .8);" id="liberar_todos">Liberar todos</button>
             </form>
+            
             <!-- Tabla que se ajusta al contenido -->
+
             <div id="tabla">
                 <form action="" method="post">
                     <div class="not-prose relative rounded-xl bg-slate-100">
@@ -124,6 +130,8 @@
                                                                 {{ equipo[5] }}
                                                             {% endif %}
                                                         </td> <!-- Software -->
+
+                                                        <!-- Botón de liberación de equipos -->
                                                         <td class="border-b border-slate-300 p-4 pr-8 text-slate-500">
                                                             <button class="text-white rounded-lg text-center liberar-btn" data-id="{{ equipo[7] }}" style="background-color: rgba(0, 46, 25, .8);"><!--ID Usuario registrado al equipo-->
                                                                 <p class="p-3">Liberar</p>
@@ -320,6 +328,12 @@
                     confirmButtonText: 'OK'
                 });
             });
+        }
+
+    </script>
+    <script>
+        function reload(){
+            window.location.reload();
         }
     </script>
 

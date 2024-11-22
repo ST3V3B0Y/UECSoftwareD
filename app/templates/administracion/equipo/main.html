@@ -15,13 +15,12 @@
 
 <body class="fondo bg-cover bg-no-repeat">
     <header class="flex row bg-white max-h-32 justify-between items-center">
-        <img src="{{url_for('static',filename='../static/images/logo-uec.png')}}" alt=""
-            class="object-contain w-1/6 aspect-3/2 mx-4">
-            <button onclick="reload()" class="text-green-900 m-16 text-2xl font-semibold p-4 rounded-xl hover:text-green-800 hover:shadow-2xl">
-                <i class="fa-solid fa-rotate-right mx-4" style="color: #14532d;"></i>Recargar Página
-            </button>
+        <img src="{{url_for('static',filename='../static/images/logo-uec.png')}}" alt="" class="object-contain w-1/6 aspect-3/2 mx-4">
+        <button onclick="reload()" class="reload text-green-900 m-16 text-2xl font-semibold p-4 rounded-xl hover:text-green-800 hover:shadow-2xl">
+            <i class="fa-solid fa-rotate-right mx-4" style="color: #14532d;"></i>Recargar Página
+        </button>
         <div>
-            <ul class="flex flex-row">
+            <ul class="navlist">
                 <li>
                     <form action="{{ url_for('usuario.logout') }}" method="post">
                         <button class="text-green-900 m-16 text-2xl font-semibold p-4 rounded-xl hover:text-green-800 hover:shadow-2xl">
@@ -207,7 +206,7 @@
                 </div>
             </div>
             <div class="derecha">
-                <div class="my-10 mx-32 grid gap-x-20 gap-y-3 grid-cols-5 w-1/3 justify-items-center">
+                <div class="der1 my-10 mx-32 grid gap-x-20 gap-y-3 grid-cols-5 w-1/3 justify-items-center">
                     {% for i in range(65, 60,-1) %}
                         {% for equipo in equipos %}
                         {% if equipo.idEquipo==i %}
@@ -255,11 +254,17 @@
                         {% endfor %}
                     {% endfor %}
                 </div>
-                <div class="flex flex-col mx-32 justify-center w-1/3">
-                    <h4 class="info_recep">¡Usted esta aquí!</h4>
-                    <img class="recepcion" src="{{ url_for('static', filename='../static/images/recepcion.png') }}" alt="Not Found">
+                <div class="recepcion">
+                    <div class="ubicacion">
+                        <h4 class="info_recep">¡Usted está aquí!</h4>
+                        <img class="img-recepcion" src="{{ url_for('static', filename='../static/images/recepcion.png') }}" alt="Not Found">
+                    </div>
+                    <div class="box-exit">
+                        <img class="exit" src="{{ url_for('static', filename='../static/images/exit.png') }}" alt="Salida">
+                    </div>
                 </div>
-                <div class="flex flex-row justify-end line-3">
+                <!-- -->
+                <div class="flex flex-row justify-start line-3">
                     {% for i in range(35, 32,-1) %}
                         {% for equipo in equipos %}
                         {% if equipo.idEquipo==i %}
@@ -340,13 +345,12 @@
                 </div>
             </div>
         </div>
-        
+
         <div>
             <h1 class="titulo-sala">SALA D507</h1>
             <img class="image-pc mr-52" src="{{ url_for('static', filename='../static/images/main.png') }}" alt="Not Found">
         </div>
-
-
+        
     </div>
     <script>
         function confirmarPrestamo(equipoId) {
@@ -476,6 +480,17 @@
         }
         
         
+        function equipoDañado(equipoId){
+            Swal.fire({
+                title: 'Fuera de servicio :(',
+                text: "El equipo " + equipoId + " está fuera de servicio",
+                icon: 'OutOf',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Volver',
+            });
+        }
+        
         function equipoUsado(equipoId){
             Swal.fire({
                 title: '¡Equipo en uso!',
@@ -486,7 +501,7 @@
                 confirmButtonText: 'Volver',
             });
         }
-        
+
         function reload(){
             window.location.reload();
         }
