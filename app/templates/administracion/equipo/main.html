@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="{{url_for('static', filename='../static/dist/js/numpad.js')}}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <title>Document</title>
+    <title>Salas de computo UEC</title>
 </head>
 
 <body class="fondo bg-cover bg-no-repeat">
@@ -255,6 +255,9 @@
                     {% endfor %}
                 </div>
                 <div class="recepcion">
+                    <div class="box-flecha">
+                        <img class="flecha_der" src="{{ url_for('static', filename='../static/images/flecha_der.png')}}" alt="">
+                    </div>
                     <div class="ubicacion">
                         <h4 class="info_recep">¡Usted está aquí!</h4>
                         <img class="img-recepcion" src="{{ url_for('static', filename='../static/images/recepcion.png') }}" alt="Not Found">

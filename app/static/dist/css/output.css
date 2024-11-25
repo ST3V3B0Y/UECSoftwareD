@@ -2152,7 +2152,7 @@ h5{
 .form__submit_register{
   margin-top: -15px;
   text-decoration: none;
-  background-color: rgba(0,46,25,.8);
+  background-color: rgba(0, 116, 64, 0.8);
   color: #fff;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -2379,15 +2379,25 @@ h5{
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 }
 
+.box-flecha{
+  margin-left: 2rem;
+  padding-top: 2rem;
+}
+
+.flecha_der{
+  width: 50px;
+  rotate: 180deg;
+
+}
+
 .ubicacion{
   display: block;
-  margin-left: 8rem;
 }
 
 .box-exit{
   width: auto;
   margin-top: 1rem;
-  margin-right: 1px;
+  margin-right: 5px;
 }
 
 .exit{
@@ -2556,11 +2566,6 @@ h5{
   justify-content: space-between;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
-
 .pagination {
   display: flex;
   align-items: center;
@@ -2628,7 +2633,7 @@ body {
 }
 
 .titulo-sala{
-  text-shadow: 0 0 1rem black;
+  text-shadow: 0 0 2rem black;
   padding-left: 20rem;
 }
 
@@ -2637,7 +2642,17 @@ body {
 }
 
 
+
 /*FIN DE ESTILOS DE PAGINAICON*/
+
+.arrow:hover{
+  transition: all 0.5s ease;
+  background-color: rgb(209, 209, 209);
+}
+
+.arrow:not(:hover){
+  transition: all 0.5s ease;
+}
 
 .hover\:bg-gray-300:hover {
   --tw-bg-opacity: 1;
@@ -2885,8 +2900,6 @@ body {
 @media (max-width: 920px){
   .hero{
     display: block;
-
-
   }
 }
 

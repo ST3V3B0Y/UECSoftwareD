@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/175f4319ea.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Usuarios</title>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     <header class="flex row bg-white max-h-32 justify-between items-center">
         <img src="{{url_for('static',filename='../static/images/logo-uec.png')}}" alt=""
             class="object-contain w-1/6 aspect-3/2 mx-4" />
-        <button onclick="reload()" class="text-green-900 m-16 text-2xl font-semibold p-4 rounded-xl hover:text-green-800 hover:shadow-2xl">
+        <button onclick="reload()" class="reload text-green-900 m-16 text-2xl font-semibold p-4 rounded-xl hover:text-green-800 hover:shadow-2xl">
             <i class="fa-solid fa-rotate-right mx-4" style="color: #14532d;"></i>Recargar Página
         </button>
         <div>
@@ -62,7 +62,7 @@
     <div id="contenedor" class="bg-slate-100 rounded-2xl max-w-7xl flex flex-col m-auto my-10">
         <div class="bg-green-600 opacity-95 rounded-xl flex flex-row shadow-lg justify-evenly items-center py-4">
             <p class="text-slate-100 text-3xl font-normal font-sans">
-                Usuarios Registrados.
+                <b>Usuarios registrados</b>
             </p>
         </div>
         <div class="bg-white shadow-md p-10 rounded-b-xl">
@@ -108,6 +108,7 @@
                 <button class="arrow"  id="prev">&#8592;</button> <!-- Flecha izquierda -->
                 <div id="pagination-controls" class="flex justify-center my-4"></div>
                 <button class="arrow" id="next">&#8594;</button> <!-- Flecha derecha -->
+            </div>
             
             <!-- Fin Controles de paginación -->
 
