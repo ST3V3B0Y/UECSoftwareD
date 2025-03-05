@@ -1,3 +1,5 @@
+# Tabla "Historial" en donde se encuentra la información de los equipos una vez son liberados, aquí se encontrará la hora de inicio y salida del usuario, fecha, sala, número de equipo, programa usado y usuario.
+
 from app import db
 from datetime import datetime
 

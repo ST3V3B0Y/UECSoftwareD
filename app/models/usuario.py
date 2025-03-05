@@ -1,3 +1,5 @@
+# Tabla "usuario" almacena la información de los usuarios que se registran en la sala
+
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -11,10 +13,10 @@ class Usuario(db.Model):
     identificacionUsuario = db.Column(db.String(256), nullable=False)
     Facultad_idFacultad = db.Column(db.Integer, db.ForeignKey('facultad.idFacultad'), nullable=False)
     historiales = db.relationship('Historial', backref='usuario', lazy=True)
-    #es_administrador = db.Column(db.Boolean, default=False)
+    is_admin = db.Column(db.Boolean, default=False)
         
     def __repr__(self):
-        return f'{self.nombreUsuario}'
+        return f'<Usuario {self.nombreUsuario}>'
 
     def is_authenticated(self):
         return True  # Siempre devolvemos True porque todos los usuarios autenticados son válidos

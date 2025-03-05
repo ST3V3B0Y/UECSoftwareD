@@ -1,3 +1,5 @@
+# Tabla "Equipo" en donde se encontrará información del equipo, tanto el estado (Libre/Ocupado) como la sala donde pertenece
+
 from app import db
 
 class Equipo(db.Model):

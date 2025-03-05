@@ -1,3 +1,5 @@
+# Tablas de la base de datos de la sala de computo
+
 from app.models.equipo import Equipo
 from app.models.usuario import Usuario
 from app.models.facultad import Facultad

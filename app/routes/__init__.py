@@ -1,3 +1,5 @@
+# Rutas para acceder a la base de datos y realizar acciones CRUD (Create, Read, Update, Delete)
+
 from flask import Blueprint
 
 bp = Blueprint('main', __name__)

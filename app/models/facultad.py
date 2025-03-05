@@ -1,3 +1,5 @@
+# Tabla "Facultad" donde se encuentran las facultades de la universidad
+
 from app import db
 
 class Facultad(db.Model):

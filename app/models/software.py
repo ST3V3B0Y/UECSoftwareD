@@ -1,3 +1,5 @@
+# Tabla "Software" que almacena la información de los software/programas que se usan en la sala 
+
 from app import db
 
 class Software(db.Model):
