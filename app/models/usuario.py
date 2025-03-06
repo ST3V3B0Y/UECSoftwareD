@@ -11,7 +11,7 @@ class Usuario(db.Model):
     contraseña=db.Column(db.String(256), nullable=True)
     nombreUsuario = db.Column(db.String(256), nullable=False)
     identificacionUsuario = db.Column(db.String(256), nullable=False)
-    Facultad_idFacultad = db.Column(db.Integer, db.ForeignKey('facultad.idFacultad'), nullable=False)
+    Facultad_idFacultad = db.Column(db.Integer, db.ForeignKey('facultad.idFacultad', ondelete='cascade'), nullable=False)
     historiales = db.relationship('Historial', backref='usuario', lazy=True)
     is_admin = db.Column(db.Boolean, default=False)
         

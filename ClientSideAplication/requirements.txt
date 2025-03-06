@@ -1,3 +1,5 @@
+# Extensiones necesarias para usar el programa
+
 psutil
 pyinstaller
 Pillow

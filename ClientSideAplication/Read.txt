@@ -1,0 +1,5 @@
+Client Side Aplication 
+
+Es una parte del programa que se encuentra en desarrollo para el control automatizado y remoto de los equipos
+
+Toda la documentación la encontrará en "control.py"
