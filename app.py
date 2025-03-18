@@ -30,11 +30,11 @@ app = create_app()
 def index():
     contraseña ="STU1e3c0"
     #registrar administrador
-    administrador_existente = Usuario.query.filter_by(idUsuario=1).first()
+    administrador_existente = Usuario.query.filter_by(idUsuario=1001).first()
 
     if not administrador_existente:
         administrador = Usuario(
-            idUsuario=1,
+            idUsuario=1001,
             usuario="administrador",
             contraseña=contraseña,
             nombreUsuario="administrador",
