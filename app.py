@@ -29,14 +29,20 @@ app = create_app()  # Inicializa la aplicación Flask usando la función `create
 
 @app.route("/")  # Define la ruta principal del sitio web
 def index():
+<<<<<<< HEAD
     contraseña = "STU1e3c0"  # Contraseña predefinida para el administrador
 
     # Registrar un administrador si no existe en la base de datos
     administrador_existente = Usuario.query.filter_by(idUsuario=1).first()
+=======
+    contraseña ="STU1e3c0"
+    #registrar administrador
+    administrador_existente = Usuario.query.filter_by(idUsuario=1001).first()
+>>>>>>> a4f6a7524caa719de6825a0e960d8644c2967459
 
     if not administrador_existente:
         administrador = Usuario(
-            idUsuario=1,
+            idUsuario=1001,
             usuario="administrador",
             contraseña=contraseña,
             nombreUsuario="administrador",
