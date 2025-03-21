@@ -4,7 +4,7 @@ from datetime import datetime
 class Historial(db.Model):
     __tablename__ = 'historial'
     idHistorial = db.Column(db.Integer, primary_key=True)
-    Usuario_idUsuario = db.Column(db.Integer, db.ForeignKey('usuario.idUsuario'), nullable=False)
+    Usuario_idUsuario = db.Column(db.Integer, db.ForeignKey('usuario.idUsuario', ondelete='cascade'), nullable=False)
     fecha = db.Column(db.Date, default=datetime.now().date(), nullable=False)
     horaInicio = db.Column(db.Time, nullable=False)
     horaFin = db.Column(db.Time, nullable=True)

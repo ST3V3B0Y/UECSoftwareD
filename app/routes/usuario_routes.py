@@ -66,8 +66,12 @@ def register_usuario():
 
         if not facultad or not nombre:
             return {"status": "error", "message": "Complete todos los campos"}, 400
+        elif len(documento) < 6 and len(documento) > 12:
+            return {"status": "error", "message": "Identificación inválida"}, 400
         elif identificacionUsuario > 0:
             return {"status": "warning", "message": "Identificación ya registrada"}, 400
+        elif nombre == " " or len(nombre) < 7:
+            return {"status": "error", "message": "Escriba su nombre completo"}, 400
         else:
             usuario = Usuario(
                 usuario=None,
