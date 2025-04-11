@@ -1,35 +1,60 @@
-from app import db
-from werkzeug.security import generate_password_hash, check_password_hash
+from app import db  # Importa la instancia de SQLAlchemy para la conexión con la base de datos
 
- 
-class Usuario(db.Model):
-    __tablename__='usuario'
-    idUsuario = db.Column(db.Integer, primary_key=True)
-    usuario=db.Column(db.String(256),unique=True, nullable=True)
-    contraseña=db.Column(db.String(256), nullable=True)
-    nombreUsuario = db.Column(db.String(256), nullable=False)
-    identificacionUsuario = db.Column(db.String(256), nullable=False)
-    Facultad_idFacultad = db.Column(db.Integer, db.ForeignKey('facultad.idFacultad', on_delete='cascade'), nullable=False)
-    historiales = db.relationship('Historial', backref='usuario', lazy=True, cascade='all, delete, delete-orphan')
-    #es_administrador = db.Column(db.Boolean, default=False)
-        
-    def __repr__(self):
-        return f'{self.nombreUsuario}'
-
-    def is_authenticated(self):
-        return True  # Siempre devolvemos True porque todos los usuarios autenticados son válidos
-
-    def is_active(self):
-        return True  # Aquí puedes implementar lógica para desactivar cuentas de usuario si es necesario
-
-    def is_anonymous(self):
-        return False  # Devolvemos False porque los usuarios autenticados no son anónimos
-
-    def get_id(self):
-        return str(self.idUsuario)  # Devolvemos el ID del usuario como una cadena Unicode
+class Software(db.Model):
+    """
+    Modelo que representa una aplicación de software en el sistema.
     
-    def set_password(self, password):
-        self.contraseña = generate_password_hash(password)
+    Atributos:
+        idSoftware (int): Identificador único del software (clave primaria)
+        nombreSoftware (str): Nombre de la aplicación (máx. 100 caracteres)
+        historiales (relationship): Relación con los registros de uso del software
+    
+    Relaciones:
+        - Tiene una relación uno-a-muchos con el modelo Historial
+    """
+    __tablename__ = 'software'  # Nombre de la tabla en la base de datos
 
-    def check_password(self, password):
-        return check_password_hash(self.contraseña, password)
+    # Identificador único del software
+    idSoftware = db.Column(
+        db.Integer, 
+        primary_key=True,  # Clave primaria
+        nullable=False,    # No puede ser nulo
+        autoincrement=True # Auto-incremental
+    )
+
+    # Nombre de la aplicación
+    nombreSoftware = db.Column(
+        db.String(100),    # Tipo string con máximo 100 caracteres
+        nullable=False     # Campo obligatorio
+    )
+
+    # Relación con los registros de uso (historial)
+    historiales = db.relationship(
+        'Historial',                # Modelo relacionado (Historial)
+        backref='software',         # Crea atributo 'software' en Historial
+        lazy='dynamic',             # Carga dinámica para mejor performance
+        cascade='all, delete-orphan', # Elimina registros hijos al borrar
+        order_by='desc(Historial.fecha)'  # Ordena historial por fecha descendente
+    )
+
+    def __repr__(self):
+        """
+        Representación oficial del objeto Software.
+        
+        Returns:
+            str: Representación en string del objeto
+        """
+        return f'<Software [ID: {self.idSoftware}] - {self.nombreSoftware}>'
+
+    def to_dict(self):
+        """
+        Convierte el objeto Software a un diccionario.
+        
+        Returns:
+            dict: Diccionario con los atributos del software
+        """
+        return {
+            'id': self.idSoftware,
+            'nombre': self.nombreSoftware,
+            'total_usos': len(self.historiales.all())
+        }
