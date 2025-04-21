@@ -15,7 +15,7 @@ from sqlalchemy import text
 from app import create_app, db
 from app.models import Equipo
 from app.routes import equipo_routes
-from app.models import Usuario
+from app.models import usuario
 from app.models import Facultad
 from app.models import Software
 from app.config import SERVER_HOST, SERVER_PORT
